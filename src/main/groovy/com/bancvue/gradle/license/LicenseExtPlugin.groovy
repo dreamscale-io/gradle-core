@@ -33,7 +33,6 @@ class LicenseExtPlugin implements Plugin<Project> {
 		init(project)
 		applyLicensePlugin()
 		configureLicenseHeader()
-		excludedConfiguredFileExtensions()
 		addCheckAllLicenseTask()
 		setGroupOnLicenseTasks()
 	}
@@ -79,25 +78,6 @@ class LicenseExtPlugin implements Plugin<Project> {
 
 	private File getHeaderFile() {
 		new File(project.buildDir, "license/HEADER")
-	}
-
-	private void excludedConfiguredFileExtensions() {
-		List<String> expressions = getExcludedFileExpressions()
-		if (expressions) {
-			project.tasks.withType(License).each { License licenseTask ->
-				licenseTask.exclude expressions
-			}
-		}
-	}
-
-	private List<String> getExcludedFileExpressions() {
-		List<String> expressions = []
-		if (licenseProperties) {
-			expressions = licenseProperties.excludedFileExtensions.collect { String extension ->
-				"**/*.${extension}"
-			}
-		}
-		expressions
 	}
 
 	private void setGroupOnLicenseTasks() {

@@ -52,19 +52,4 @@ class LicenseExtPluginSpecification extends AbstractPluginSpecification {
 		!(headerFile.text =~ /existing content/)
 	}
 
-	def "apply should exclude defined extensions from format"() {
-		given:
-		project.ext["licenseExcludedFileExtensions"] = ["properties", "yml"]
-		project.apply(plugin: "java")
-
-		when:
-		applyPlugin()
-
-		then:
-		project.tasks.withType(License)
-		project.tasks.withType(License) { License task ->
-			assert task.excludes == ["**/*.properties", "**/*.yml"] as Set
-		}
-	}
-
 }
