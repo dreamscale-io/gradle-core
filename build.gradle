@@ -56,12 +56,15 @@ bintray {
 	publications = ['gradleCore', 'gradleCoreTest']
 	pkg {
 		repo = 'maven-public'
-		userOrg = 'dreamscale'
+		userOrg = 'dreamscale-io'
 		licenses = ['Apache-2.0']
 		labels = ['gradle']
 		version {
 			vcsTag = project.version
 			attributes = ['gradle-plugin': 'org.dreamscale.core-oss:org.dreamscale:gradle-core']
+                websiteUrl = 'https://github.com/dreamscale-io/gradle-core'
+                issueTrackerUrl = 'https://github.com/dreamscale-io/gradle-core/issues'
+                vcsUrl = 'https://github.com/dreamscale-io/gradle-core.git'
 		}
 	}
 }
