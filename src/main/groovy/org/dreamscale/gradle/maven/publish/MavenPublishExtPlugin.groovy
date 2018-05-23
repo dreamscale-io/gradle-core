@@ -112,6 +112,11 @@ class MavenPublishExtPlugin implements Plugin<Project> {
 		String pomPackaging = getOptionalProjectProperty("maven.pom.packaging")
 		String pomDeveloperId = getOptionalProjectProperty("maven.pom.developer.id")
 
+		// the default packaging is jar so don't specify
+		if (pomPackaging == "jar") {
+			pomPackaging = null
+		}
+
 		project.publishing_ext {
 			pom {
 				if (pomPackaging != null) {
