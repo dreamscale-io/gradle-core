@@ -143,7 +143,6 @@ class IdeaProject {
 
     private void setDefaultConfigurationVmParameters(String configurationName, List vmParameters) {
         String vmParameterString = createVmParameterString(vmParameters)
-        Logger projectLogger = project.logger
 
         project.idea {
             workspace {

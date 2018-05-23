@@ -17,6 +17,7 @@ package org.dreamscale.gradle
 
 import org.dreamscale.gradle.ide.IdeExtPlugin
 import org.dreamscale.gradle.maven.publish.MavenPublishExtPlugin
+import org.dreamscale.gradle.support.ManifestAugmentor
 import org.dreamscale.gradle.support.ProjectSupportPlugin
 import org.dreamscale.gradle.test.ComponentTestPlugin
 import org.dreamscale.gradle.test.JacocoExtPlugin
@@ -46,6 +47,7 @@ class CorePlugin implements Plugin<Project> {
         applyBuilderTimerPluginIfProjectIsRoot()
         applyMavenPublishAndBintrayPlugins()
         printGradleCorePluginVersion()
+        augmentArtifactManifest()
     }
 
     private void applyJavaExtPlugin() {
@@ -157,6 +159,11 @@ class CorePlugin implements Plugin<Project> {
 
     private boolean shouldPrintGradleCoreVersion() {
         project == project.rootProject && project.hasProperty("dreamscale.printCorePluginVersion")
+    }
+
+    private void augmentArtifactManifest() {
+        ManifestAugmentor augmentor = new ManifestAugmentor(project)
+        augmentor.addGitShaToArtifactManifest()
     }
 
 }

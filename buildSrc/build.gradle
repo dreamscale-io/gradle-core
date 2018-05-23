@@ -10,6 +10,7 @@ dependencies {
     compile "net.jokubasdargis.buildtimer:gradle-plugin:0.1.1"
     compile "nl.javadude.gradle.plugins:license-gradle-plugin:0.9.0"
     compile "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
+    compile 'org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r'
     compile "org.dreamscale:gradle-docker:1.+"
 }
 
