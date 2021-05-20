@@ -44,7 +44,7 @@ class CorePlugin implements Plugin<Project> {
         applyJacocoExtPlugin()
         applyIdeExtPlugin()
         applyProjectSupportPlugin()
-        applyBuilderTimerPluginIfProjectIsRoot()
+        //applyBuilderTimerPluginIfProjectIsRoot()
         applyMavenPublishAndBintrayPlugins()
         printGradleCorePluginVersion()
         augmentArtifactManifest()
